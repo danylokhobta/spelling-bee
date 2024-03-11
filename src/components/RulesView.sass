@@ -1,0 +1,37 @@
+.RulesView
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  .rules-content
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    ul
+      li
+        margin: 20px 0
+        display: flex
+        align-items: center
+        gap: 20px
+        img
+          width: 40px
+          user-select: none
+
+@media (prefers-color-scheme: light)
+  .RulesView
+    .rules-content
+      ul
+        li
+          img
+            filter: invert(0)
+
+@media (prefers-color-scheme: dark)
+  .RulesView
+    .rules-content
+      ul
+        li
+          img
+            filter: invert(100%)
+        

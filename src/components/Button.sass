@@ -1,0 +1,30 @@
+.Button
+  button
+    outline: none
+    padding: 10px
+    border: 1px solid black
+    border-radius: 5px
+    cursor: pointer
+    font-size: 18px
+    transform: translate(0, 0)
+    box-shadow: 4px 4px black
+    transition: .1s
+    &:active
+      transform: translate(4px, 4px)
+      box-shadow: 0 0
+  img
+    width: 40px
+    display: block
+    filter: light-dark(none, invert(100%))
+
+@media (prefers-color-scheme: light)
+  .Button
+    background-color: white
+    img
+      filter: invert(0)
+
+@media (prefers-color-scheme: dark)
+  .Button
+    background-color:#191919
+    img
+      filter: invert(100%)

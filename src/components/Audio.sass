@@ -1,0 +1,25 @@
+.Audio
+  display: flex
+  column-gap: 10px
+  width: 100%
+  select
+    width: 100%
+    user-select: none
+    outline: none
+    flex-grow: 1
+    flex-shrink: 1
+    padding: 10px
+    border: 1px solid black
+    border-radius: 5px
+    cursor: pointer
+    font-size: 14px
+    transform: translate(0, 0)
+    box-shadow: 4px 4px black
+    transition: .1s
+    &:active
+      transform: translate(4px, 4px)
+      box-shadow: 0 0
+    option
+      width: 200px
+      white-space: pre-wrap
+      word-wrap: break-word
