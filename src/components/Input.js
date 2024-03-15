@@ -1,3 +1,4 @@
+import './Input.sass';
 function Input({ inputValue }) {
   const inputStyle = {
     border: '1px solid black',
