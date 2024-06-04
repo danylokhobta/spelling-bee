@@ -1,0 +1,13 @@
+{
+  "short_name": "Spelling Bee",
+  "name": "Spelling Bee Game",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}
