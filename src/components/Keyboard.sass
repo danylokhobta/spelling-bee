@@ -1,0 +1,29 @@
+.Keyboard
+  display: flex
+  flex-direction: column
+  row-gap: 10px
+  .row
+    display: flex
+    justify-content: center
+    column-gap: 6px
+    button
+      padding: 10px
+      border: 1px solid black
+      border-radius: 5px
+      cursor: pointer
+      font-size: 18px
+      font-weight: bold
+      transform: translate(0, 0)
+      box-shadow: 2px 2px black
+      transition: .1s
+      &:active
+        transform: translate(4px, 4px)
+        box-shadow: 0 0
+
+@media (max-width: 600px)
+  .Keyboard
+    .row
+      column-gap: 4px
+      button
+        padding: 8px
+        font-size: 16px
