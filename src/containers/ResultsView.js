@@ -14,7 +14,7 @@ function ResultsView() {
 
   useEffect(() => {
     addConfetti();
-  }, [addConfetti])
+  })
 
   return (
     <RouteWrapper className="ResultsView" animate={true}>
