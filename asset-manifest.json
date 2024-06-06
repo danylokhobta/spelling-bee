@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/spelling-bee/static/css/main.e14c0993.css",
+    "main.css": "/spelling-bee/static/css/main.87b83f74.css",
     "main.js": "/spelling-bee/static/js/main.c847ec26.js",
     "static/media/correct-34.gif": "/spelling-bee/static/media/correct-34.bd45d45ed884f4b77c18.gif",
     "static/media/correct-33.gif": "/spelling-bee/static/media/correct-33.78d491d023c6b42309bb.gif",
@@ -55,11 +55,11 @@
     "static/media/loader.gif": "/spelling-bee/static/media/loader.90672f1deffccbcdf4f1.gif",
     "static/media/wrong-1.gif": "/spelling-bee/static/media/wrong-1.e017ab713125888c56d1.gif",
     "index.html": "/spelling-bee/index.html",
-    "main.e14c0993.css.map": "/spelling-bee/static/css/main.e14c0993.css.map",
+    "main.87b83f74.css.map": "/spelling-bee/static/css/main.87b83f74.css.map",
     "main.c847ec26.js.map": "/spelling-bee/static/js/main.c847ec26.js.map"
   },
   "entrypoints": [
-    "static/css/main.e14c0993.css",
+    "static/css/main.87b83f74.css",
     "static/js/main.c847ec26.js"
   ]
 }
