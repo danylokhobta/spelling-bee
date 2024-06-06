@@ -1,40 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap')
-*
-  margin: 0
-  padding: 0
-  box-sizing: border-box
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
+@import 'normalize.css'
+@import './_variables'
 :root
   color-scheme: light dark
 body
-  font-family: "Space Mono", monospace !important
-  font-size: 18px !important
+  font-family: "VT323", monospace !important
+  font-size: $p !important
+  line-height: 1 !important
 h4
-  font-size: 32px
+  font-size: $h4
+  width: 100%
+  text-align: center
+h3
+  font-size: $h3
   width: 100%
   text-align: center
 button, select
-  font-family: "Space Mono", monospace
-  font-size: 18px !important
   outline: none
   user-select: none
 .error
   text-decoration-line: underline
   text-decoration-style: wavy
 
-@media (max-width: 600px) 
+@media (max-width: $breakpoint-m) 
   body
-    font-size: 14px !important
+    font-size: $p-m !important
 
 @media (prefers-color-scheme: light)
-  body, button, select
-    background-color: white
-    color: black
+  body, select
+    background-color: $light-mode-bg !important
+    color: $light-mode-font !important
   .error
     text-decoration-color: red
 
 @media (prefers-color-scheme: dark)
-  body, button, select
-    background-color:#191919
-    color: white
+  body, select
+    background-color: $dark-mode-bg !important
+    color: $dark-mode-font !important
   .error
-    text-decoration-color: #b30202
+    text-decoration-color: $error-dark

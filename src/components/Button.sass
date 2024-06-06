@@ -1,21 +1,21 @@
+@import '../_variables'
 .Button
   position: relative
-  border-radius: 5px
   outline: none
   padding: 10px
-  border: 1px solid black
+  border: $border
+  border-radius: $border-radius
   cursor: pointer
   outline: none
-  font-size: 18px
   transform: translate(0, 0)
-  box-shadow: 4px 4px black
+  box-shadow: 4px 4px $shadow
   transition: .1s
   &:active
     transform: translate(4px, 4px)
     box-shadow: 0 0
   &.disabled
     transform: translate(0, 0) !important
-    box-shadow: 4px 4px black !important
+    box-shadow: 4px 4px $shadow !important
     &::before
       content: ''
       position: absolute
@@ -29,27 +29,24 @@
       left: 10px
       right: 10px
       border-radius: inherit
-      background-color: inherit
+      background-color: $dark-mode-bg
   img
     width: 40px
     display: block
 
 @media (prefers-color-scheme: light)
   .Button
-    background-color: white
     img
       filter: invert(0)
 
 @media (prefers-color-scheme: dark)
   .Button
-    background-color:#191919
     img
       filter: invert(100%)
 
-@media (max-width: 600px)
+@media (max-width: $breakpoint-m)
   .Button
     button
       padding: 8px
-      font-size: 16px
     img
       width: 30px

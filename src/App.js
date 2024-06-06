@@ -6,14 +6,15 @@ import ResultsView from "./containers/ResultsView";
 import WarningView from './containers/WarningView';
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from 'framer-motion';
+import Toast from './components/Toast';
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
+      <Toast />
       <Menu />
       <WarningView />
-      <div className='router'>
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route path="/home" element={<RulesView />}/>
@@ -22,7 +23,6 @@ function App() {
           <Route path="*" element={<Navigate to="/home" replace />} />
         </Routes>
       </AnimatePresence>
-      </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+@import '../_variables'
 .dissolving-object
   pointer-events: none
   position: fixed
@@ -22,9 +23,9 @@
   pointer-events: none
   position: fixed
   top: 0
-  bottom: 0
-  right: 0
   left: 0
+  height: 100%
+  width: 100%
   opacity: 0
   animation: dissolve-bg 0.5s ease-in-out
   z-index: 1
@@ -38,13 +39,13 @@
 @media (prefers-color-scheme: light)
   .answer-anim-bg
     &.correct
-      background-color: #00FF00
+      background-color: $success-light
     &.wrong
-      background-color: #FF0000
+      background-color: $error-light
 
 @media (prefers-color-scheme: dark)
   .answer-anim-bg
     &.correct
-      background-color: #00b300
+      background-color: $success-dark
     &.wrong
-      background-color: #b30202
+      background-color: $error-dark

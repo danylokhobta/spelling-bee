@@ -22,7 +22,7 @@ function Counter() {
         {lifeIcons}
       </article>
       <article>
-        <p><span className='error'>corect:</span></p><b>{correct}</b>
+        <h4><span className='error'>corect:</span><b> {correct}</b></h4>
       </article>
     </div>
   );

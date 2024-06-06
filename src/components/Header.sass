@@ -1,17 +1,20 @@
+@import '../_variables'
 .Header
   width: 100%
   display: flex
+  align-items: center
   gap: 20px
-  span
+  h3
     flex: 100%
     padding: 5px
-    font-size: 32px
     text-align: center
-    border: 1px solid black
-    border-radius: 5px
-    box-shadow: 4px 4px black
+    border: $border
+    border-radius: $border-radius
+    box-shadow: 4px 4px $shadow
+  button
+    padding: 13px
 
-@media (max-width: 600px) 
+@media (max-width: $breakpoint-m) 
   .Header
-    span
-      font-size: 24px
+    button
+      padding: 9px

@@ -1,14 +1,15 @@
+@import '../_variables'
 .Input
-  border: 1px solid black
+  border: $border
   height: 50px
   flex-grow: 1
   flex-shrink: 1
   padding: 0 10px
-  border-radius: 5px
+  border-radius: $border-radius
   display: flex
   align-items: center
 
-@media (max-width: 600px)
+@media (max-width: $breakpoint-m)
   .Input
     height: 30px
     padding: 0 8px

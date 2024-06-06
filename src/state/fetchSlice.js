@@ -1,4 +1,3 @@
-// fetchSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const MAX_RETRIES = 20;
@@ -6,19 +5,24 @@ const MAX_RETRIES = 20;
 export const initFetch = createAsyncThunk(
   'fetch/initFetch',
   async (_, { rejectWithValue }) => {
-    let attempts = 0;
+    let error;
     for (let i = 0; i < MAX_RETRIES; i++){
       try {
         const wordResponse = await fetch('https://random-word-api.herokuapp.com/word');
         if (!wordResponse.ok) {
-          throw new Error('Failed to fetch word');
+          error = new Error('Failed to fetch word');
+          error.code = wordResponse.status;
+          error.source = 'word';
+          throw error;
         }
         const wordData = await wordResponse.json();
         const word = wordData[0];
-
         const descResponse = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
         if (!descResponse.ok) {
-          throw new Error('Failed to fetch description');
+          error = new Error('Failed to fetch description');
+          error.code = descResponse.status;
+          error.source = 'desc';
+          throw error;
         }
         const descData = await descResponse.json();
         const partOfSpeech = descData[0].meanings[0].partOfSpeech;
@@ -27,12 +31,23 @@ export const initFetch = createAsyncThunk(
         const sentence = `${word}. A ${partOfSpeech} meaning ${description} ${example ? 'Example: ' + example : ''}`;
 
         return { word, sentence };
-      } catch (error) {
-        if (attempts >= MAX_RETRIES) {
-          return rejectWithValue(error.message);
+      } catch (err) {
+        error = err;
+
+        if(typeof error.code === 'string' && error.code.includes('INTERNET_DISCONNECTED')){
+          throw new Error('Please check your internet connection and try again.');
+        }
+
+        if(error.source === 'word'){
+          throw error;
+        }
+
+        if(error.source === 'desc' && error.code !== 404){
+          throw error;
         }
       }
     }
+    return rejectWithValue({ message: error.message });
   }
 );
 
@@ -42,7 +57,7 @@ const fetchSlice = createSlice({
     isLoading: false,
     word: '',
     sentence: '',
-    error: null,
+    error: {message: ''},
   },
   extraReducers: (builder) => {
     builder
@@ -57,7 +72,13 @@ const fetchSlice = createSlice({
       })
       .addCase(initFetch.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload || action.error.message;
+        if (action.payload) {
+          // If there's a payload, it means the rejection was explicitly with a value
+          state.error = action.payload.message;
+        } else {
+          // If not, it means the rejection was an error object
+          state.error = action.error.message;
+        }
       });
   },
 });

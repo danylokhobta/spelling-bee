@@ -81,7 +81,6 @@ const AnimationProvider = ({ children }) => {
           />
         </div>
       ))}
-
       {children}
     </AnimationContext.Provider>
   );

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { submit, reset, addAnswer } from '../state/statsSlice';
 import { initFetch } from '../state/fetchSlice';
 import { useNavigate } from "react-router-dom";
-import './GameView.sass';
 import Header from '../components/Header';
 import Audio from '../components/Audio';
 import Input from '../components/Input';
@@ -75,11 +74,19 @@ function GameView() {
     };
   }, [handleSubmit]);
 
+  const style = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignContent: 'center',
+    gap: '30px 10px'
+  }
+
   return (
     <RouteWrapper className="GameView" animate={true}>
       <Header linkTo='/home'/>
       <Counter />
-      <div className='game-parts'>
+      <div className='game-parts' style={style}>
         <Audio gameStatus={gameStatus} />
         <Input inputValue={inputValue} />
         <Button disableOnLoad={true} onButtonClick={handleSubmit}>submit</Button>

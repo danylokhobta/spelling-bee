@@ -11,7 +11,7 @@ function Header({ linkTo }) {
           <Button linkTo={linkTo}><img src={back} alt='Go Back' /></Button>
         )
       }
-      <span>Spelling Bee</span>
+      <h3>Spelling Bee</h3>
     </div>
   );
 }

@@ -1,5 +1,4 @@
-$breakpoint-xl: 768px
-$breakpoint-s: 425px
+@import '../_variables'
 
 .Menu
   .menu-button
@@ -60,7 +59,7 @@ $breakpoint-s: 425px
         a
           display: inline-block
           color: #cccccc
-          font-size: 64px
+          font-size: 81px
           font-weight: 400
           text-decoration: none
           transition: 0.2s
@@ -80,7 +79,7 @@ $breakpoint-s: 425px
           transform: translate(50%, -50%) rotate(45deg)
       &:hover
         span
-          background-color: white !important
+          background-color: $light-mode-bg !important
     .menu-content
       opacity: 1
       visibility: visible
@@ -96,22 +95,16 @@ $breakpoint-s: 425px
       ul
         li
           a
-            font-size: 36px
-  @media (max-width: $breakpoint-s)
-    .menu-content
-      ul
-        li
-          a
-            font-size: 24px
+            font-size: 48px
 
 @media (prefers-color-scheme: light)
   .Menu
     .menu-button
       span
-        background-color: black
+        background-color: $dark-mode-bg
 
 @media (prefers-color-scheme: dark)
   .Menu
     .menu-button
       span
-        background-color: white
+        background-color: $light-mode-bg
