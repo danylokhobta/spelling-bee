@@ -8,3 +8,4 @@
 - Significant code optimization: state management, components, etc.
 - SEO metadata.
 - Design improvement.
+- Added error handling.
