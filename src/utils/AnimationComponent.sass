@@ -1,0 +1,54 @@
+@import '../_variables'
+
+.anim-container
+  position: absolute
+  .dissolving-object
+    pointer-events: none
+    position: fixed
+    left: 0
+    top: 0
+    transform: translate(-50%, -50%)
+    opacity: 0
+    max-height: 300px
+    max-width: 300px
+    animation: dissolve-gif 2.5s ease-in-out
+    z-index: 2
+
+    @keyframes dissolve-gif
+      0%
+        opacity: 0.5
+      10%
+        opacity: 1
+      100%
+        opacity: 0
+
+  .answer-anim-bg
+    pointer-events: none
+    position: fixed
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    opacity: 0
+    animation: dissolve-bg 0.5s ease-in-out
+    z-index: 1
+
+  @keyframes dissolve-bg
+    0%
+      opacity: 0.5
+    100%
+      opacity: 0
+
+@media (prefers-color-scheme: light)
+  .answer-anim-bg
+    &.score
+      background-color: $success-light
+    &.wrong
+      background-color: $error-light
+
+@media (prefers-color-scheme: dark)
+  .answer-anim-bg
+    &.score
+      background-color: $success-dark
+    &.wrong
+      background-color: $error-dark

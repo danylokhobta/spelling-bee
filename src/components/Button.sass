@@ -1,6 +1,8 @@
 @import '../_variables'
 .Button
   position: relative
+  height: 100%
+  width: 100%
   outline: none
   padding: 10px
   border: $border
@@ -19,7 +21,7 @@
     &::before
       content: ''
       position: absolute
-      background-image: url("../assets/icons/loader.gif")
+      background-image: url("/icons/loader.gif")
       background-position: center
       background-repeat: no-repeat
       background-size: contain
@@ -31,22 +33,12 @@
       border-radius: inherit
       background-color: $dark-mode-bg
   img
-    width: 40px
-    display: block
+    width: 30px
 
-@media (prefers-color-scheme: light)
-  .Button
-    img
-      filter: invert(0)
+  &:has(img)
+    aspect-ratio: 1
 
 @media (prefers-color-scheme: dark)
   .Button
     img
       filter: invert(100%)
-
-@media (max-width: $breakpoint-m)
-  .Button
-    button
-      padding: 8px
-    img
-      width: 30px
